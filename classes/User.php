@@ -6,6 +6,7 @@ class User {
   private $email;
   protected $discountPrime = 0;
   private $purchasedProduct;
+  private $card;
 
   function __construct($_firstname, $_lastname) {
     $this->firstname = $_firstname;
@@ -27,6 +28,9 @@ class User {
   public function setPurchased($_product) {
     $this->purchasedProduct = $_product;
   }
+  public function setCard($_card) {
+    $this->card = $_card;
+  }
 
 
   public function getFirstname() {
@@ -40,6 +44,9 @@ class User {
   }
   public function getDiscountPrime() {
     return $this->discountPrime;
+  }
+  public function getCard() {
+    return $this->card;
   }
 
   public function getDiscountedPrice() {
