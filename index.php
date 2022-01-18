@@ -8,7 +8,13 @@ $new_user = new User('Mattia', 'Giacomoni');
 var_dump($new_user);
 
 $new_product = new Product('PS5', 499.90);
-   var_dump($new_product);
+var_dump($new_product);
+
+$new_primeUser = new PrimeUser('Valentina', 'Locci');
+var_dump($new_primeUser);
+
+$new_user->setPurchased($new_product);
+$new_primeUser->setPurchased($new_product);
 
 ?>
 
@@ -23,6 +29,12 @@ $new_product = new Product('PS5', 499.90);
 <body>
   <h2>Ciao <?php  echo "{$new_user->getFirstname()} {$new_user->getLastname()}"; ?></h2>
   <h3>Riepilogo ordine:</h3>
-  <h5>Hai acquistato: <?php echo $new_product->getTitle()?> per <?php echo number_format($new_product->getPrice(), 2, ",", "") ?>€</h5>
+  <h5>Hai acquistato: <?php echo $new_product->getTitle()?> per <?php echo $new_user->getDiscountedPrice()?> €</h5>
+  <h5>Con lo sconto del : <?php echo $new_user->getDiscountPrime(); ?> %</h5>
+
+  <h2>Ciao <?php  echo "{$new_primeUser->getFirstname()} {$new_primeUser->getLastname()}"; ?></h2>
+  <h3>Riepilogo ordine:</h3>
+  <h5>Hai acquistato: <?php echo $new_product->getTitle()?> per <?php echo $new_primeUser->getDiscountedPrice()?> €</h5>
+  <h5>Con lo sconto del : <?php echo $new_primeUser->getDiscountPrime(); ?> %</h5>
 </body>
 </html>
