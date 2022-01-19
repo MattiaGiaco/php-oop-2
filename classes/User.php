@@ -1,6 +1,11 @@
 <?php
 
+require_once __DIR__ . '/Address.php';
+
 class User {
+
+  use Address;
+
   private $firstname;
   private $lastname;
   private $email;

@@ -6,7 +6,10 @@ require_once __DIR__ . '/classes/PrimeUser.php';
 require_once __DIR__ . '/classes/Card.php';
 
 $new_user = new User('Mattia', 'Giacomoni');
-//var_dump($new_user);
+$new_user->street = 'Via XX Settembre';
+$new_user->town = 'Rome';
+$new_user->country = 'Italy';
+var_dump($new_user);
 
 $new_product = new Product('PS5', 499.90);
 //var_dump($new_product);
@@ -39,6 +42,7 @@ $new_primeUser->setCard($new_creditCard2);
   <h5>Hai acquistato: <?php echo $new_product->getTitle()?> per <?php echo $new_user->getDiscountedPrice()?> €</h5>
   <h5>Con lo sconto del : <?php echo $new_user->getDiscountPrime(); ?> %</h5>
   <h4>Con la carta: <?php echo $new_user->getCard()->getCardNumber() ?></h4>
+  <h5>Indirizzo spedizione: <?php echo $new_user->getAddress(); ?></h5>
 
   <h2>Ciao <?php  echo "{$new_primeUser->getFirstname()} {$new_primeUser->getLastname()}"; ?></h2>
   <h3>Riepilogo ordine:</h3>
