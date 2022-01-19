@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/Address.php';
+require_once __DIR__ . "/Card.php";
 
 class User {
 
@@ -33,9 +34,14 @@ class User {
   public function setPurchased($_product) {
     $this->purchasedProduct = $_product;
   }
-  public function setCard($_card) {
-    $this->card = $_card;
+  public function setCard($_cardNumber,$_cvv,$_name, $_expired_date_m, $_expired_date_y){ 
+    try {
+      $this->card = new Card($_cardNumber, $_cvv, $_name, $_expired_date_m, $_expired_date_y);
+    } catch (\Exception $e) {
+      echo $e->getMessage();
+    }
   }
+
 
 
   public function getFirstname() {
@@ -50,7 +56,7 @@ class User {
   public function getDiscountPrime() {
     return $this->discountPrime;
   }
-  public function getCard() {
+  public function getCard(){
     return $this->card;
   }
 
